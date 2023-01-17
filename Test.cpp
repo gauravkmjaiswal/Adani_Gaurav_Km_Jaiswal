@@ -5,15 +5,10 @@ void sort(vector<vector<int>> &v,int index)
 {
     cout<<"\nsorting using index "<<index<<"\n";
     vector<int> newV;
-    for(int i=0;i<v.size();i++)
-    {
-        newV.push_back(v[i][index]);
-    }
-    sort(newV.begin(),newV.end());
-    for(int i=0;i<v.size();i++)
-    {
-        v[i][index]=newV[i];
-    }
+    sort(v.begin(),v.end(),[&](vector<int>v1,vector<int>v2){
+        return v1[index]<v2[index];
+    });
+  
     for(int i=0;i<v.size();i++)
     {
         for(int j=0;j<v[0].size();j++)
